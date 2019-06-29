@@ -15,7 +15,9 @@ class App extends Component {
     super(props);
     this.state = {
       addingItem: false,
-      pendingItem: "",
+      newItem: "",
+      editingItem: false,
+      editItem: "",
       data: {
         todo: [],
         completed: [],
@@ -23,7 +25,10 @@ class App extends Component {
       }
     };
     this.addItem = this.addItem.bind(this);
+    this.updateItem = this.updateItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     this.toggleComplete = this.toggleComplete.bind(this);
+    this.toggleArchive = this.toggleArchive.bind(this);
     firestore.collection(COLLECTION_NAME).onSnapshot(snapshot => {
       let todo = [];
       let archived = [];
@@ -63,6 +68,20 @@ class App extends Component {
         completedAt: new Date().toISOString()
       });
   }
+
+  async updateItem(item) {
+    // if (!this.state.editingItem) return;
+    debugger;
+    this.setState({ editingItem: true });
+    await firestore
+      .collection(COLLECTION_NAME)
+      .doc(item.id)
+      .update({
+        content: item,
+        updatedAt: new Date().toISOString()
+      });
+    this.setState({ editingItem: false, editItem: "" });
+  }
   async toggleArchive(item) {
     await firestore
       .collection(COLLECTION_NAME)
@@ -80,21 +99,22 @@ class App extends Component {
   }
 
   async addItem() {
-    if (!this.state.pendingItem) return;
+    if (!this.state.newItem) return;
     this.setState({ addingItem: true });
     await firestore.collection(COLLECTION_NAME).add({
-      content: this.state.pendingItem,
+      content: this.state.newItem,
       completed: false,
       archived: false,
       createdAt: new Date().toISOString()
     });
-    this.setState({ addingItem: false, pendingItem: "" });
+    this.setState({ addingItem: false, newItem: "" });
   }
 
   render() {
     const cb = {
       complete: this.toggleComplete,
       archive: this.toggleArchive,
+      update: this.updateItem,
       delete: this.deleteItem
     };
     return (
@@ -109,8 +129,8 @@ class App extends Component {
             size="large"
             placeholder="What don't you know?"
             disabled={this.state.addingItem}
-            onChange={evt => this.setState({ pendingItem: evt.target.value })}
-            value={this.state.pendingItem}
+            onChange={evt => this.setState({ newItem: evt.target.value })}
+            value={this.state.newItem}
             onPressEnter={this.addItem}
             required
           />

@@ -21,7 +21,7 @@
 .App-add-todo-button {
 }
 
-.App-todos {
+.List {
   background-color: white;
   max-width: 400px;
   margin: 0 auto;
@@ -29,12 +29,12 @@
   margin-bottom: 20px;
 }
 
-.App-todo {
+.List-item {
   display: flex;
   justify-content: space-between;
  }
 
-.App-todo-icon {
+.List-item-icon {
   font-size: 22px;
   font-weight: bold;
   cursor: pointer;
