@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Input, Button } from "antd";
+import { Layout, Input, Button, Icon } from "antd";
 
 // We import our firestore module
 import firestore from "./firestore";
@@ -20,7 +20,8 @@ class App extends Component {
         todo: [],
         completed: [],
         archived: []
-      }
+      },
+      view: "todo"
     };
     this.addItem = this.addItem.bind(this);
     this.toggleComplete = this.toggleComplete.bind(this);
@@ -50,7 +51,7 @@ class App extends Component {
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
         );
       });
-      this.setState({ data: {todo, completed, archived }});
+      this.setState({ data: { todo, completed, archived } });
     });
   }
 
@@ -91,6 +92,10 @@ class App extends Component {
     this.setState({ addingItem: false, pendingItem: "" });
   }
 
+  toggleView(view) {
+    this.setState({ view: view });
+  }
+
   render() {
     const cb = {
       complete: this.toggleComplete,
@@ -100,8 +105,16 @@ class App extends Component {
     return (
       <Layout className="App">
         <Header className="App-header">
+          <img src="logo.png" className="App-logo" />
           <h1>Gaps</h1>
         </Header>
+        <Button.Group>
+          <Button onClick={() => this.toggleView("todo")}>Todo</Button>
+          <Button onClick={() => this.toggleView("completed")}>
+            Completed
+          </Button>
+          <Button onClick={() => this.toggleView("archived")}>Archived</Button>
+        </Button.Group>
         <Content className="App-content">
           <Input
             ref="add-todo-input"
@@ -125,19 +138,30 @@ class App extends Component {
           </Button>
           <br />
           <br />
-          <List title="Todo" type="todo" items={this.state.data.todo} cb={cb} />
-          <List
-            title="Completed"
-            type="completed"
-            items={this.state.data.completed}
-            cb={cb}
-          />
-          <List
-            title="Archived"
-            type="archived"
-            items={this.state.data.archived}
-            cb={cb}
-          />
+          {this.state.view == "todo" && (
+            <List
+              title="Todo"
+              type="todo"
+              items={this.state.data.todo}
+              cb={cb}
+            />
+          )}
+          {this.state.view == "completed" && (
+            <List
+              title="Completed"
+              type="completed"
+              items={this.state.data.completed}
+              cb={cb}
+            />
+          )}
+          {this.state.view == "archived" && (
+            <List
+              title="Archived"
+              type="archived"
+              items={this.state.data.archived}
+              cb={cb}
+            />
+          )}
         </Content>
         <Footer className="App-footer">&copy; Danny Phillips. 2019</Footer>
       </Layout>
