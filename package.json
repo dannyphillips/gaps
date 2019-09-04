@@ -37,6 +37,6 @@
     "packageManager": "npm"
   },
   "devDependencies": {
-    "firebase-tools": "^7.0.2"
+    "firebase-tools": "^7.3.1"
   }
 }
