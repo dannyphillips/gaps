@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Input, Button, Icon } from "antd";
+import { Layout, Input, Button } from "antd";
 
 // We import our firestore module
 import firestore from "./firestore";
@@ -105,7 +105,7 @@ class App extends Component {
     return (
       <Layout className="App">
         <Header className="App-header">
-          <img src="logo.png" className="App-logo" />
+          <img src="logo.png" className="App-logo" alt="logo" />
           <h1>Gaps</h1>
         </Header>
         <Button.Group>
@@ -138,7 +138,7 @@ class App extends Component {
           </Button>
           <br />
           <br />
-          {this.state.view == "todo" && (
+          {this.state.view === "todo" && (
             <List
               title="Todo"
               type="todo"
@@ -146,7 +146,7 @@ class App extends Component {
               cb={cb}
             />
           )}
-          {this.state.view == "completed" && (
+          {this.state.view === "completed" && (
             <List
               title="Completed"
               type="completed"
@@ -154,7 +154,7 @@ class App extends Component {
               cb={cb}
             />
           )}
-          {this.state.view == "archived" && (
+          {this.state.view === "archived" && (
             <List
               title="Archived"
               type="archived"
