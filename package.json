@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.1.0",
+    "@ant-design/icons": "4.0.5",
+    "antd": "4.1.0",
     "firebase": "7.13.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -37,6 +38,6 @@
     "packageManager": "npm"
   },
   "devDependencies": {
-    "firebase-tools": "^7.16.1"
+    "firebase-tools": "7.16.1"
   }
 }

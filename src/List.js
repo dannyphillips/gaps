@@ -1,5 +1,6 @@
 import React from "react";
-import { List, Icon } from "antd";
+import { List } from "antd";
+import Icon from '@ant-design/icons'
 
 const actions = {
   todo: ['complete','archive'],
