@@ -5,7 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "4.2.1",
     "antd": "4.4.2",
-    "firebase": "7.16.0",
+    "firebase": "7.16.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
