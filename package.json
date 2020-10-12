@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "4.2.2",
-    "antd": "4.6.6",
+    "antd": "4.7.0",
     "firebase": "7.23.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
