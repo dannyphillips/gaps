@@ -6,7 +6,7 @@
     "@ant-design/icons": "4.2.2",
     "antd": "4.7.0",
     "firebase": "7.23.0",
-    "react": "16.13.1",
+    "react": "16.14.0",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.3"
   },
