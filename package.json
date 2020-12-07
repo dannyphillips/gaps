@@ -2,14 +2,6 @@
   "name": "gaps",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@ant-design/icons": "4.3.0",
-    "antd": "4.9.2",
-    "firebase": "8.1.2",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-scripts": "4.0.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -37,7 +29,15 @@
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
   },
+  "dependencies": {
+    "@ant-design/icons": "^4.3.0",
+    "antd": "^4.9.2",
+    "firebase": "^8.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1"
+  },
   "devDependencies": {
-    "firebase-tools": "8.17.0"
+    "firebase-tools": "^8.17.0"
   }
 }
