@@ -30,7 +30,7 @@
     "packageManager": "npm"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.4",
+    "@ant-design/icons": "^5.0.1",
     "antd": "^4.16.13",
     "firebase": "^9.0.2",
     "react": "^17.0.2",
