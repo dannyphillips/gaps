@@ -38,6 +38,6 @@
     "react-scripts": "^4.0.3"
   },
   "devDependencies": {
-    "firebase-tools": "^9.18.0"
+    "firebase-tools": "^12.6.0"
   }
 }
